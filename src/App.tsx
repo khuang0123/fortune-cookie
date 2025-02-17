@@ -3,6 +3,7 @@ import cookieImage from "/fortune_cookie.png";
 import cookieImage1 from "/cookie1.png";
 import cookieImage2 from "/cookie2.png";
 import cookieImage3 from "/cookie3.png";
+import fortuneList from "./fortunes.json";
 
 import "./App.css";
 
@@ -43,17 +44,13 @@ function App() {
         </div>
       );
     } else {
-      return <p>rgr</p>;
+      let index = Math.floor(Math.random()*15);
+      return <h2>{fortuneList[index]}</h2>;
     } 
   };
   return (
     <>
       {renderCookie()}
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
       <p className="read-the-docs">Keep clicking to crack the fortune cookie</p>
     </>
   );
