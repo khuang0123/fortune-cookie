@@ -4,6 +4,7 @@ import cookieImage1 from "/cookie1.png";
 import cookieImage2 from "/cookie2.png";
 import cookieImage3 from "/cookie3.png";
 import fortuneList from "./fortunes.json";
+import slip from "/slip.png";
 
 import "./App.css";
 
@@ -28,6 +29,9 @@ function App() {
     if (count + 1 == 3) {
       setImageSrc(cookieImage3);
     }
+    if (count + 1 == 4) {
+      setImageSrc(slip);
+    }
   };
 
   const renderCookie = () => {
@@ -45,7 +49,32 @@ function App() {
       );
     } else {
       let index = Math.floor(Math.random()*15);
-      return <h2>{fortuneList[index]}</h2>;
+      return (
+        <div style={{ position: "relative", display: "inline-block" }}>
+        {/* Image */}
+        <img src={imageSrc} className="logo" alt="Slip" />
+    
+        {/* Overlayed Text */}
+        <h2
+          style={{
+            position: "absolute",
+            top: "50%", // Center vertically
+            left: "50%", // Center horizontally
+            transform: "translate(-50%, -50%)", // Adjust for exact centering
+            color: "white",
+            fontFamily: "'Caveat'",
+            backgroundColor: "rgba(255, 255, 255, 0)", // Semi-transparent background for readability
+            padding: "10px",
+            borderRadius: "5px",
+            fontSize: "20px",
+            fontWeight: "bold",
+            width: "70%"
+          }}
+        >
+          {fortuneList[index]}
+        </h2>
+      </div>
+      )
     } 
   };
   return (
