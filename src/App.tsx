@@ -48,39 +48,39 @@ function App() {
         </div>
       );
     } else {
-      let index = Math.floor(Math.random()*15);
+      let index = Math.floor(Math.random() * 15);
       return (
         <div style={{ position: "relative", display: "inline-block" }}>
-        {/* Image */}
-        <img src={imageSrc} className="logo" alt="Slip" />
-    
-        {/* Overlayed Text */}
-        <h2
-          style={{
-            position: "absolute",
-            top: "50%", // Center vertically
-            left: "50%", // Center horizontally
-            transform: "translate(-50%, -50%)", // Adjust for exact centering
-            color: "white",
-            fontFamily: "'Caveat'",
-            backgroundColor: "rgba(255, 255, 255, 0)", // Semi-transparent background for readability
-            padding: "10px",
-            borderRadius: "5px",
-            fontSize: "20px",
-            fontWeight: "bold",
-            width: "70%"
-          }}
-        >
-          {fortuneList[index]}
-        </h2>
-      </div>
-      )
-    } 
+          {/* Image */}
+          <img src={imageSrc} className="logo" alt="Slip" />
+
+          {/* Overlayed Text */}
+          <h2
+            style={{
+              position: "absolute",
+              top: "51%", // Center vertically
+              left: "50%", // Center horizontally
+              transform: "translate(-50%, -50%)", // Adjust for exact centering
+              color: "white",
+              fontFamily: "'Caveat'",
+              backgroundColor: "rgba(255, 255, 255, 0)", // Semi-transparent background for readability
+              padding: "10px",
+              borderRadius: "5px",
+              fontSize: "20px",
+              fontWeight: "bold",
+              width: "70%",
+            }}
+          >
+            {fortuneList[index]}
+          </h2>
+        </div>
+      );
+    }
   };
   return (
     <>
       {renderCookie()}
-      <p className="read-the-docs">Keep clicking to crack the fortune cookie</p>
+      <p className="read-the-docs" style={{fontFamily: "'Caveat'"}}>Keep clicking to crack the fortune cookie</p>
     </>
   );
 }
