@@ -18,6 +18,30 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.slip {
+  height: 33em;
+  padding: 4em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.slip:hover {
+  filter: drop-shadow(0 0 2em rgba(149, 149, 208, 0.667));
+}
+
+.button {
+  position: absolute;  /* Allows free positioning */
+  top: 2em;            /* Adjusts distance from the top */
+  right: 33em;          /* Adjusts distance from the right */
+  height: 8em;
+  padding: 2em;        /* Adjust padding (10em is too large) */
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.button:hover {
+  filter: drop-shadow(0 0 2em #c68e17aa);
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

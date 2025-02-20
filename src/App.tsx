@@ -5,12 +5,14 @@ import cookieImage2 from "/cookie2.png";
 import cookieImage3 from "/cookie3.png";
 import fortuneList from "./fortunes.json";
 import slip from "/slip.png";
+import home from "/home.png";
 
 import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
   const [imageSrc, setImageSrc] = useState(cookieImage);
+  const [imageHome, setImageHome] = useState(home);
 
   const handleClick = () => {
     setCount((count) => {
@@ -31,8 +33,13 @@ function App() {
     }
     if (count + 1 == 4) {
       setImageSrc(slip);
-    }
+    } 
   };
+
+  const homeClick = () => {
+    setCount(0);
+    setImageSrc(cookieImage);
+  }
 
   const renderCookie = () => {
     if (count < 4) {
@@ -48,11 +55,11 @@ function App() {
         </div>
       );
     } else {
-      let index = Math.floor(Math.random() * 15);
+      let index = Math.floor(Math.random() * 99);
       return (
         <div style={{ position: "relative", display: "inline-block" }}>
           {/* Image */}
-          <img src={imageSrc} className="logo" alt="Slip" />
+          <img src={imageSrc} className="slip" alt="Slip" />
 
           {/* Overlayed Text */}
           <h2
@@ -73,6 +80,9 @@ function App() {
           >
             {fortuneList[index]}
           </h2>
+
+          <img src={imageHome} className="button" onClick={homeClick} style={{ cursor: "pointer" }} alt="Home" />
+
         </div>
       );
     }
