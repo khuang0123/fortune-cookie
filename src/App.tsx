@@ -33,6 +33,7 @@ function App() {
     }
     if (count + 1 == 4) {
       setImageSrc(slip);
+      setImageHome(home);
     } 
   };
 
