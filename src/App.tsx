@@ -6,6 +6,8 @@ import cookieImage3 from "/cookie3.png";
 import fortuneList from "./fortunes.json";
 import slip from "/slip.png";
 import home from "/home.png";
+import save from "/save.png";
+import history from "/history.png";
 
 import "./App.css";
 
@@ -13,6 +15,7 @@ function App() {
   const [count, setCount] = useState(0);
   const [imageSrc, setImageSrc] = useState(cookieImage);
   const [imageHome, setImageHome] = useState(home);
+  const [imageSave, setImageSave] = useState(save);
 
   const handleClick = () => {
     setCount((count) => {
@@ -24,6 +27,7 @@ function App() {
     });
     if (count + 1 == 1) {
       setImageSrc(cookieImage1);
+      
     }
     if (count + 1 == 2) {
       setImageSrc(cookieImage2);
@@ -34,13 +38,15 @@ function App() {
     if (count + 1 == 4) {
       setImageSrc(slip);
       setImageHome(home);
-    } 
+      setImageSave(save);
+    }
   };
 
   const homeClick = () => {
     setCount(0);
     setImageSrc(cookieImage);
-  }
+    setImageSave(history);
+  };
 
   const renderCookie = () => {
     if (count < 4) {
@@ -53,13 +59,19 @@ function App() {
             onClick={handleClick}
             style={{ cursor: "pointer" }}
           />
+          <img
+            src={imageSave}
+            className="historyButton"
+            style={{ cursor: "pointer" }}
+            alt="History"
+          />
         </div>
       );
     } else {
       let index = Math.floor(Math.random() * 99);
       return (
         <div style={{ position: "relative", display: "inline-block" }}>
-          {/* Image */}
+          {/* slip */}
           <img src={imageSrc} className="slip" alt="Slip" />
 
           {/* Overlayed Text */}
@@ -81,9 +93,21 @@ function App() {
           >
             {fortuneList[index]}
           </h2>
-
-          <img src={imageHome} className="button" onClick={homeClick} style={{ cursor: "pointer" }} alt="Home" />
-
+          {/* home button */}
+          <img
+            src={imageHome}
+            className="homeButton"
+            onClick={homeClick}
+            style={{ cursor: "pointer" }}
+            alt="Home"
+          />
+          {/* save button */}
+          <img
+            src={imageSave}
+            className="saveButton"
+            style={{ cursor: "pointer" }}
+            alt="Save"
+          />
         </div>
       );
     }
@@ -91,7 +115,9 @@ function App() {
   return (
     <>
       {renderCookie()}
-      <p className="read-the-docs" style={{fontFamily: "'Caveat'"}}>Keep clicking to crack the fortune cookie</p>
+      <p className="read-the-docs" style={{ fontFamily: "'Caveat'" }}>
+        Keep clicking to crack the fortune cookie
+      </p>
     </>
   );
 }
